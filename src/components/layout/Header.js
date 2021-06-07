@@ -19,6 +19,8 @@ import MoreIcon from "@material-ui/icons/MoreVert";
 
 import logo from "../../assets/logo.png";
 
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
@@ -188,11 +190,10 @@ const Header = (props) => {
           {/* <Typography className={classes.title} variant="h6" noWrap>
             YouTube
           </Typography> */}
-          <img
-            src={logo}
-            alt="YouTube Logo"
-            style={{ height: 45 }}
-          />
+
+          <Link to="/">
+            <img src={logo} alt="YouTube Logo" style={{ height: 45 }} />
+          </Link>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
