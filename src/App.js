@@ -1,7 +1,6 @@
 import { Switch, Route } from "react-router-dom";
 import { useState } from "react";
 
-import HomePage from "./pages/HomePage";
 import VideoPage from "./pages/VideoPage";
 import HomeSidebar from "./components/layout/HomeSidebar";
 import Layout from "./components/layout/Layout";

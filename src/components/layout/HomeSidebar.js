@@ -24,6 +24,8 @@ import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import HistoryIcon from "@material-ui/icons/History";
 
+import HomeContent from "./HomeContent";
+
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -84,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(1),
   },
 }));
 
@@ -182,9 +184,7 @@ export default function MiniDrawer(props) {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        Hello
-        <Typography paragraph></Typography>
-        <Typography paragraph></Typography>
+        <HomeContent />
       </main>
     </div>
   );
