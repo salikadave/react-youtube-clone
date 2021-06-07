@@ -1,5 +1,5 @@
 const VideoPage = (props) => {
-  return <div>Video Page</div>;
+  return <div style={{ padding: 100 }}>Video Page</div>;
 };
 
 export default VideoPage;

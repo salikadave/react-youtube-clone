@@ -1,17 +1,28 @@
 import { Switch, Route } from "react-router-dom";
+import { useState } from "react";
 
 import HomePage from "./pages/HomePage";
 import VideoPage from "./pages/VideoPage";
-
+import HomeSidebar from "./components/layout/HomeSidebar";
 import Layout from "./components/layout/Layout";
 
 function App() {
+  const [openHomeDrawer, setHomeDrawer] = useState(true);
+  const drawerHomeToggle = () => {
+    setHomeDrawer((prevState) => {
+      setHomeDrawer(!prevState);
+    });
+  };
+
   return (
     <div>
-      <Layout>
+      <Layout drawerHomeToggle={drawerHomeToggle}>
         <Switch>
           <Route path="/" exact>
-            <HomePage />
+            <HomeSidebar
+              isOpen={openHomeDrawer}
+              drawerToggle={drawerHomeToggle}
+            />
           </Route>
           <Route path="/watch">
             <VideoPage />
