@@ -6,25 +6,26 @@ import App from "./App";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
-  typography: {
-    fontFamily: ['"Poppins"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
-  },
+  // typography: {
+  //   fontFamily: ['"Poppins"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
+  // },
   palette: {
     primary: {
-      main: "#6153B7",
+      main: "#c00",
     },
     secondary: {
-      main: "#39E1C1",
+      main: "#606060",
+      light: "#f8f8f8",
     },
     error: {
       main: "#EA0B43",
     },
     text: {
-      primary: "#696969",
-      secondary: "#8C8C8C",
+      primary: "#000000",
+      secondary: "#6f6f6f",
     },
     background: {
-      default: "#FDFDFD",
+      default: "#FFFFFF",
     },
   },
 });
