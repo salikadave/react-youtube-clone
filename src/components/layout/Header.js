@@ -11,16 +11,25 @@ import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import MailIcon from "@material-ui/icons/Mail";
-import NotificationsIcon from "@material-ui/icons/Notifications";
+// import MailIcon from "@material-ui/icons/Mail";
+// import NotificationsIcon from "@material-ui/icons/Notifications";
+import VideoCallIcon from "@material-ui/icons/VideoCall";
+import AppsIcon from "@material-ui/icons/Apps";
 import MoreIcon from "@material-ui/icons/MoreVert";
+
+import logo from "../../assets/logo.png";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
   },
+  appBar: {
+    backgroundColor: theme.palette.background.default,
+    color: theme.palette.secondary.main,
+  },
   menuButton: {
     marginRight: theme.spacing(2),
+    color: theme.palette.secondary.main,
   },
   title: {
     display: "none",
@@ -51,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    color: theme.palette.secondary.main,
   },
   inputRoot: {
     color: "inherit",
@@ -132,21 +142,22 @@ const Header = (props) => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
+        <IconButton aria-label="create videos" color="inherit">
+          {/* <Badge badgeContent={4} color="secondary">
             <MailIcon />
-          </Badge>
+          </Badge> */}
+          <VideoCallIcon />
         </IconButton>
-        <p>Messages</p>
+        <p>Create</p>
       </MenuItem>
-      <MenuItem>
+      {/* <MenuItem>
         <IconButton aria-label="show 11 new notifications" color="inherit">
           <Badge badgeContent={11} color="secondary">
             <NotificationsIcon />
           </Badge>
         </IconButton>
         <p>Notifications</p>
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -163,7 +174,7 @@ const Header = (props) => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="fixed">
+      <AppBar className={classes.appBar} position="fixed">
         <Toolbar>
           <IconButton
             edge="start"
@@ -174,15 +185,20 @@ const Header = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
-          </Typography>
+          {/* <Typography className={classes.title} variant="h6" noWrap>
+            YouTube
+          </Typography> */}
+          <img
+            src={logo}
+            alt="YouTube Logo"
+            style={{ height: 45 }}
+          />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
             <InputBase
-              placeholder="Search…"
+              placeholder="Search"
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,
@@ -193,14 +209,28 @@ const Header = (props) => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="secondary">
+              {/* <Badge badgeContent={4} color="secondary">
                 <MailIcon />
-              </Badge>
+              </Badge> */}
+              <VideoCallIcon />
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
+            {/* <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={17} color="secondary">
                 <NotificationsIcon />
               </Badge>
+            </IconButton> */}
+            <IconButton aria-label="show 17 new notifications" color="inherit">
+              <AppsIcon />
+            </IconButton>
+            <IconButton
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <MoreIcon />
             </IconButton>
             <IconButton
               edge="end"
