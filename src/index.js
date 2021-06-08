@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import dotenv from "dotenv";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 dotenv.config({ path: "./.env" });
 
@@ -35,6 +36,7 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
+    <CssBaseline />
     <BrowserRouter>
       <App />
     </BrowserRouter>

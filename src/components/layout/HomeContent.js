@@ -15,7 +15,7 @@ const HomeContent = (props) => {
   //     });
   // }, []);
   return (
-    <div>
+    <div style={{ backgroundColor: "#fafafa", minHeight: "100%" }}>
       <ChipsContainer />
       <VideosContainer />
     </div>
