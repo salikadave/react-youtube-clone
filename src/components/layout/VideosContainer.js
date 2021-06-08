@@ -1,5 +1,11 @@
+import VideoPlayer from "react-youtube";
+
 const VideosContainer = (props) => {
-    return <div>Videos</div>
+  return (
+    <div>
+      <VideoPlayer />
+    </div>
+  );
 };
 
 export default VideosContainer;
