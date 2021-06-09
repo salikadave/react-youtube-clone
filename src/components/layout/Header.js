@@ -3,16 +3,15 @@ import { fade, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+
 import InputBase from "@material-ui/core/InputBase";
-import Badge from "@material-ui/core/Badge";
+
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-// import MailIcon from "@material-ui/icons/Mail";
-// import NotificationsIcon from "@material-ui/icons/Notifications";
+
 import VideoCallIcon from "@material-ui/icons/VideoCall";
 import AppsIcon from "@material-ui/icons/Apps";
 import MoreIcon from "@material-ui/icons/MoreVert";
@@ -146,21 +145,11 @@ const Header = (props) => {
     >
       <MenuItem>
         <IconButton aria-label="create videos" color="inherit">
-          {/* <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge> */}
           <VideoCallIcon />
         </IconButton>
         <p>Create</p>
       </MenuItem>
-      {/* <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem> */}
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
@@ -188,9 +177,6 @@ const Header = (props) => {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography className={classes.title} variant="h6" noWrap>
-            YouTube
-          </Typography> */}
 
           <Link to="/">
             <img src={logo} alt="YouTube Logo" style={{ height: 45 }} />
@@ -211,16 +197,9 @@ const Header = (props) => {
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
-              {/* <Badge badgeContent={4} color="secondary">
-                <MailIcon />
-              </Badge> */}
               <VideoCallIcon />
             </IconButton>
-            {/* <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton> */}
+
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <AppsIcon />
             </IconButton>

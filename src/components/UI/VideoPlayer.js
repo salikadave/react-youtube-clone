@@ -5,7 +5,6 @@ const VideoPlayer = (props) => {
     height: "540",
     width: "900",
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
   };
@@ -23,3 +22,5 @@ const VideoPlayer = (props) => {
 };
 
 export default VideoPlayer;
+
+// https://developers.google.com/youtube/player_parameters

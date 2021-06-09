@@ -1,9 +1,9 @@
 import Chip from "@material-ui/core/Chip";
-import { useTheme } from "@material-ui/core/styles";
+// import { useTheme } from "@material-ui/core/styles";
 
 const ChipsContainer = (props) => {
-  const { palette } = useTheme();
-  const chipColor = palette.secondary.main;
+  // const { palette } = useTheme();
+  // const chipColor = palette.secondary.main;
   return (
     <div style={styles.container}>
       <Chip

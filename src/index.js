@@ -11,9 +11,6 @@ import { QueueContextProvider } from "./store/queue-context";
 dotenv.config({ path: "./.env" });
 
 const theme = createMuiTheme({
-  // typography: {
-  //   fontFamily: ['"Poppins"', '"Helvetica"', '"Arial"', "sans-serif"].join(","),
-  // },
   palette: {
     primary: {
       main: "#c00",

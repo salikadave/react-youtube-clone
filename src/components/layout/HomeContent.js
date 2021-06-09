@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ChipsContainer from "./ChipsContainer";
-import VideosContainer from "./VideosContainer";
 import ImgMediaCard from "../UI/ImgMediaCard";
 import { DateTime, Duration } from "luxon";
 import GridList from "@material-ui/core/GridList";
@@ -17,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     width: "100%",
-    // height: 450,
   },
   icon: {
     color: "rgba(255, 255, 255, 0.54)",
@@ -77,7 +75,7 @@ const HomeContent = (props) => {
           cellHeight={400}
           // cellWidth={200}
           className={classes.gridList}
-          cols={3}
+          cols={4}
         >
           {loadedVideos.map((video) => (
             <GridListTile key={video.id}>

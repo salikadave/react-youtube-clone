@@ -1,20 +1,24 @@
 import { useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 
 const Layout = (props) => {
-  const [openDrawer, setOpenDrawer] = useState(false); // Video Sidebar
+  const [openDrawer, setOpenDrawer] = useState(false);
   const drawerToggle = () => {
     setOpenDrawer((prevState) => {
       setOpenDrawer(!prevState);
     });
   };
-  const location = useLocation();
+
   let sidebarType = "";
   let toggleFunction = "";
-  if (location.pathname === "/watch") {
+  const route = useRouteMatch({
+    path: ["/watch/:id"],
+    exact: true,
+  });
+  if (route) {
     toggleFunction = drawerToggle;
     sidebarType = <Sidebar isOpen={openDrawer} drawerToggle={drawerToggle} />;
   } else {

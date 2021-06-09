@@ -15,12 +15,6 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 
-//
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
-//
 import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import QueueContext from "../../store/queue-context";
@@ -36,7 +30,9 @@ const useStyles = makeStyles({
   },
   avatar: {
     backgroundColor: red[500],
-    // width: "20"
+  },
+  title: {
+    width: "100%",
   },
 });
 
@@ -58,11 +54,8 @@ const ImgMediaCard = (props) => {
   const queueCtx = useContext(QueueContext);
 
   let viewCount = Math.round(props.video.views / 1000000);
-  let viewCountString = "M";
-  if (viewCount === 0) {
-    viewCount = Math.round(props.video.views / 1000);
-    viewCountString = "K";
-  }
+  viewCount = viewCount === 0 ? viewCount * 1000 + "K" : viewCount + "M";
+  viewCount = viewCount === "0K" ? props.video.views : viewCount;
 
   const openVideoHandler = () => {
     history.push("/watch/" + props.video.id);
@@ -95,9 +88,11 @@ const ImgMediaCard = (props) => {
           </IconButton>
         }
         title={
-          <Typography variant="p" component="h4" align="left">
-            {props.video.title}
-          </Typography>
+          <div>
+            <Typography variant="p" component="h4" align="left">
+              {props.video.title}
+            </Typography>
+          </div>
         }
         subheader={
           <div>
@@ -115,7 +110,7 @@ const ImgMediaCard = (props) => {
               variant="p"
               component="p"
             >
-              {viewCount} {viewCountString} Views • {props.video.timestamp}
+              {viewCount} Views • {props.video.timestamp}
             </Typography>
           </div>
         }
@@ -132,24 +127,6 @@ const ImgMediaCard = (props) => {
           Add to Queue
         </MenuItem>
       </Menu>
-      {/* {=======} */}
-      {/* <CardActionArea>
-        <CardContent>
-          <Typography noWrap gutterBottom variant="h6" component="h3">
-            {props.video.title}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.video.channel}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {viewCount}
-            {viewCountString} views
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {props.video.timestamp}
-          </Typography>
-        </CardContent>
-      </CardActionArea> */}
     </Card>
   );
 };

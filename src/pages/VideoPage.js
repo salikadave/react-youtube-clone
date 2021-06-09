@@ -12,12 +12,6 @@ const VideoPage = () => {
   const { id } = useParams();
   const queueCtx = useContext(QueueContext);
 
-  // console.log(id);
-  // const videoDetails = [{
-  //   title: "title",
-  //   channel: "channelName",
-  //   image: "thumbnail",
-  // }];
   const videosInQueue = queueCtx.queue;
 
   console.log("Queue", videosInQueue);
@@ -33,7 +27,6 @@ const VideoPage = () => {
         style={{
           height: "auto",
           width: 250,
-          // backgroundColor: "#eee",
           marginTop: 90,
         }}
       >
@@ -45,7 +38,6 @@ const VideoPage = () => {
         {videosInQueue.map((video) => (
           <QueueCard video={video} />
         ))}
-        {/* <QueueCard video={videosInQueue[0]} /> */}
       </Card>
     </div>
   );
