@@ -25,6 +25,7 @@ import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import HistoryIcon from "@material-ui/icons/History";
 
 import HomeContent from "./HomeContent";
+import Modal from "../UI/Modal";
 
 const drawerWidth = 240;
 
@@ -105,6 +106,7 @@ export default function MiniDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
+  const [modalIsOpen, setModalIsOpen] = React.useState(true);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -185,6 +187,7 @@ export default function MiniDrawer(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <HomeContent />
+        {modalIsOpen && <Modal />}
       </main>
     </div>
   );

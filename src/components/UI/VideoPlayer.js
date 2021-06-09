@@ -19,15 +19,14 @@ const Example = () => {
   return (
     <div>
       <iframe
-        width="853"
-        height="480"
-        src={`https://www.youtube.com/embed/vWLcyFtni6`}
+        src="https://www.youtube.com/embed/E7wJTI-1dvQ"
         frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allow="autoplay; encrypted-media"
         allowFullScreen
-        title="Embedded youtube"
+        title="video"
       />
       {/* <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={onReady} />; */}
+      {/* <YouTube videoId="2g811Eo7K8U" />; */}
     </div>
   );
 };
