@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
   row: {
-    // flex: 1,
     flexDirection: "row",
   },
 }));

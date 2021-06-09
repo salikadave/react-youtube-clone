@@ -117,7 +117,6 @@ export default function MiniDrawer(props) {
 
   return (
     <div className={classes.root}>
-      
       {/* <AppBar
         position="fixed"
         className={clsx(classes.appBar, {

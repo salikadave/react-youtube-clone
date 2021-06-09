@@ -23,7 +23,7 @@ function App() {
               drawerToggle={drawerHomeToggle}
             />
           </Route>
-          <Route path="/watch">
+          <Route path="/watch/:id">
             <VideoPage />
           </Route>
         </Switch>

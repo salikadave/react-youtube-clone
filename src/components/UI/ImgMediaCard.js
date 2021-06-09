@@ -1,4 +1,3 @@
-import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -7,45 +6,67 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 345,
+    margin: 10,
   },
 });
 
-const ImgMediaCard = () => {
+const ImgMediaCard = (props) => {
   const classes = useStyles();
+  const history = useHistory();
+  let viewCount = Math.round(props.video.views / 1000000);
+  let viewCountString = "M";
+  if (viewCount === 0) {
+    viewCount = Math.round(props.video.views / 1000);
+    viewCountString = "K";
+  }
+
+  const openVideoHandler = () => {
+    history.push("/watch/" + props.video.id);
+  };
 
   return (
-    <Card variant="outlined" className={classes.root}>
+    <Card
+      variant="outlined"
+      className={classes.root}
+      onClick={openVideoHandler}
+    >
       <CardActionArea>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
           height="140"
-          image="https://i.ytimg.com/vi/zPLV9sHiero/hqdefault.jpg"
+          image={props.video.image}
           title="Contemplative Reptile"
         />
         <CardContent>
-          <Typography noWrap gutterBottom variant="h5" component="h2">
-            "Khuda Aur Mohabbat - Season 3 Ep 16 [Eng Sub] - Digitally Presented
-            by Happilac Paints - 28th May 21"
+          <Typography noWrap gutterBottom variant="h6" component="h3">
+            {props.video.title}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {props.video.channel}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {viewCount}
+            {viewCountString} views
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {props.video.timestamp}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small" color="primary">
           Share
         </Button>
         <Button size="small" color="primary">
           Learn More
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 };
