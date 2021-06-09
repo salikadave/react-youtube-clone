@@ -73,7 +73,12 @@ const HomeContent = (props) => {
     <div style={{ backgroundColor: "#fafafa", minHeight: "100%" }}>
       <ChipsContainer />
       <div className={classes.root}>
-        <GridList cellHeight={500} className={classes.gridList} cols={4}>
+        <GridList
+          cellHeight={400}
+          // cellWidth={200}
+          className={classes.gridList}
+          cols={3}
+        >
           {loadedVideos.map((video) => (
             <GridListTile key={video.id}>
               <ImgMediaCard video={video} />
