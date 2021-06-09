@@ -23,6 +23,10 @@ const useStyles = makeStyles({
   root: {
     maxWidth: 400,
     margin: 5,
+    cursor: "pointer",
+  },
+  content: {
+    overflow: "hidden",
   },
   media: {
     height: 0,
@@ -32,7 +36,9 @@ const useStyles = makeStyles({
     backgroundColor: red[500],
   },
   title: {
-    width: "100%",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
   },
 });
 
@@ -87,13 +93,12 @@ const ImgMediaCard = (props) => {
             <MoreVertIcon onClick={handleClick} />
           </IconButton>
         }
-        title={
-          <div>
-            <Typography variant="p" component="h4" align="left">
-              {props.video.title}
-            </Typography>
-          </div>
-        }
+        title={props.video.title}
+        classes={{
+          title: classes.title,
+          root: classes.content,
+          content: classes.content,
+        }}
         subheader={
           <div>
             <Typography

@@ -4,6 +4,7 @@ import { useContext } from "react";
 import VideoPlayer from "../components/UI/VideoPlayer";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import QueueCard from "../components/UI/QueueCard";
 import QueueContext from "../store/queue-context";
@@ -26,7 +27,8 @@ const VideoPage = () => {
       <Card
         style={{
           height: "auto",
-          width: 250,
+          minWidth: 250,
+          maxWidth: 448,
           marginTop: 90,
         }}
       >
@@ -34,10 +36,11 @@ const VideoPage = () => {
           title={<Typography style={{ fontWeight: "bold" }}>Queue</Typography>}
           subheader={queueStatus}
         />
-        {console.log("123")}
-        {videosInQueue.map((video) => (
-          <QueueCard video={video} />
-        ))}
+        <CardContent>
+          {videosInQueue.map((video) => (
+            <QueueCard video={video} />
+          ))}
+        </CardContent>
       </Card>
     </div>
   );

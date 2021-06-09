@@ -72,7 +72,7 @@ const HomeContent = (props) => {
       <ChipsContainer />
       <div className={classes.root}>
         <GridList
-          cellHeight={400}
+          cellHeight={props.sideBarOpen ? 272 : 296}
           // cellWidth={200}
           className={classes.gridList}
           cols={4}

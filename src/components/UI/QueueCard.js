@@ -1,26 +1,39 @@
 import { makeStyles } from "@material-ui/core/styles";
 import QueueContext from "../../store/queue-context";
 import { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
-import CardMedia from "@material-ui/core/CardMedia";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 
 import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    cursor: "pointer",
+  },
   media: {
-    height: "30%",
-    width: "30%",
+    height: "100%",
+    width: "100%",
+    margin: 0,
+  },
+  avatar: {
+    flexShrink: 1,
   },
 }));
 
 const QueueCard = (props) => {
   const classes = useStyles();
 
+  const history = useHistory();
+
   const queueCtx = useContext(QueueContext);
+
+  const openVideoHandler = () => {
+    history.push("/watch/" + props.video.id);
+  };
 
   const removeFromQueueHandler = () => {
     queueCtx.removeFromQueue(props.video.id);
@@ -30,23 +43,19 @@ const QueueCard = (props) => {
     <Card className={classes.root}>
       <CardHeader
         avatar={
-          <CardMedia
+          <img
+            src={props.video.image}
             className={classes.media}
-            component="img"
-            image={props.video.image}
-            title="Video Thumbnail"
+            onClick={openVideoHandler}
           />
         }
+        classes={{ avatar: classes.avatar }}
         action={
           <IconButton aria-label="settings">
             <DeleteIcon onClick={removeFromQueueHandler} />
           </IconButton>
         }
-        title={
-          <Typography noWrap align="left">
-            {props.video.title}
-          </Typography>
-        }
+        title={props.video.title}
         subheader={
           <div>
             <Typography align="left" color="textSecondary" component="p">
