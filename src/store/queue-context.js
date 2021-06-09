@@ -3,43 +3,43 @@ import { createContext, useState } from "react";
 const QueueContext = createContext({
   queue: [],
   totalInQueue: 0,
-  addToQueue: (favoriteMeetup) => {},
-  removeFromQueue: (meetupId) => {},
-  itemInQueue: (meetupId) => {},
+  addToQueue: (video) => {},
+  removeFromQueue: (videoId) => {},
+  currentItem: (videoId) => {},
 });
 
-export function FavoritesContextProvider(props) {
-  const [userFavorites, setUserFavorites] = useState([]);
+export function QueueContextProvider(props) {
+  const [queue, setQueue] = useState([]);
 
-  function addFavoriteHandler(favoriteMeetup) {
-    setUserFavorites((prevUserFavorites) => {
-      return prevUserFavorites.concat(favoriteMeetup);
+  function addToQueueHandler(video) {
+    setQueue((prevQueue) => {
+      console.log(video);
+      return prevQueue.concat(video);
     });
   }
 
-  function removeFavoriteHandler(meetupId) {
-    setUserFavorites((prevUserFavorites) => {
-      return prevUserFavorites.filter((meetup) => meetup.id !== meetupId);
+  function removeFromQueueHandler(videoId) {
+    setQueue((prevQueue) => {
+      return prevQueue.filter((video) => video.id !== videoId);
     });
   }
 
-  function itemIsFavoriteHandler(meetupId) {
-    return userFavorites.some((meetup) => meetup.id === meetupId);
+  function currentItemHandler(videoId) {
+    return queue.findIndex((x) => x.id === videoId) + 1;
   }
 
   const context = {
-    favorites: userFavorites,
-    totalFavorites: userFavorites.length,
-    addFavorite: addFavoriteHandler,
-    removeFavorite: removeFavoriteHandler,
-    itemIsFavorite: itemIsFavoriteHandler,
+    queue: queue,
+    totalInQueue: queue.length,
+    addToQueue: addToQueueHandler,
+    removeFromQueue: removeFromQueueHandler,
+    currentItem: currentItemHandler,
   };
-
   return (
-    <FavoritesContext.Provider value={context}>
+    <QueueContext.Provider value={context}>
       {props.children}
-    </FavoritesContext.Provider>
+    </QueueContext.Provider>
   );
 }
 
-export default FavoritesContext;
+export default QueueContext;

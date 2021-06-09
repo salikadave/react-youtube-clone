@@ -185,7 +185,7 @@ export default function MiniDrawer(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <HomeContent />
-        {modalIsOpen && <Modal />}
+        {/* {modalIsOpen && <Modal />} */}
       </main>
     </div>
   );

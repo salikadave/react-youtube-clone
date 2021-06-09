@@ -7,6 +7,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import QueueContext from "../../store/queue-context";
 
 const useStyles = makeStyles({
   root: {
@@ -17,7 +19,11 @@ const useStyles = makeStyles({
 
 const ImgMediaCard = (props) => {
   const classes = useStyles();
+
   const history = useHistory();
+
+  const queueCtx = useContext(QueueContext);
+
   let viewCount = Math.round(props.video.views / 1000000);
   let viewCountString = "M";
   if (viewCount === 0) {
@@ -27,6 +33,10 @@ const ImgMediaCard = (props) => {
 
   const openVideoHandler = () => {
     history.push("/watch/" + props.video.id);
+  };
+
+  const addToQueueHandler = () => {
+    queueCtx.addToQueue(props.video);
   };
 
   return (
@@ -59,14 +69,14 @@ const ImgMediaCard = (props) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      {/* <CardActions>
-        <Button size="small" color="primary">
-          Share
+      <CardActions>
+        <Button size="small" color="primary" onClick={addToQueueHandler}>
+          Add to queue
         </Button>
-        <Button size="small" color="primary">
+        {/* <Button size="small" color="primary">
           Learn More
-        </Button>
-      </CardActions> */}
+        </Button> */}
+      </CardActions>
     </Card>
   );
 };
