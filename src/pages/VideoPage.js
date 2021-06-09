@@ -22,6 +22,8 @@ const VideoPage = () => {
 
   console.log("Queue", videosInQueue);
 
+  const queueStatus = queueCtx.currentItem(id) + "/" + queueCtx.totalInQueue;
+
   return (
     <div style={{ display: "flex" }}>
       <div style={{ padding: 40, marginTop: 50 }}>
@@ -30,14 +32,14 @@ const VideoPage = () => {
       <Card
         style={{
           height: "auto",
-          width: 500,
+          width: 250,
           // backgroundColor: "#eee",
           marginTop: 90,
         }}
       >
         <CardHeader
           title={<Typography style={{ fontWeight: "bold" }}>Queue</Typography>}
-          subheader="1/3"
+          subheader={queueStatus}
         />
         {console.log("123")}
         {videosInQueue.map((video) => (
