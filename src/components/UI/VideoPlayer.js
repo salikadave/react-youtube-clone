@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import YouTube from "react-youtube";
 
 const Example = () => {
@@ -13,20 +13,21 @@ const Example = () => {
 
   const onReady = (event) => {
     // access to player in all event handlers via event.target
-    event.target.pauseVideo();
+    event.target.playVideo();
   };
 
   return (
-    <div>
-      <iframe
-        src="https://www.youtube.com/embed/E7wJTI-1dvQ"
+    <div style={{ height: 100 }}>
+      {/* <iframe
+        width="853"
+        height="480"
+        src={`https://www.youtube.com/embed/vWLcyFtni6U`}
         frameBorder="0"
-        allow="autoplay; encrypted-media"
+        allow="autoplay; encrypted-media;"
         allowFullScreen
-        title="video"
-      />
-      {/* <YouTube videoId="2g811Eo7K8U" opts={opts} onReady={onReady} />; */}
-      {/* <YouTube videoId="2g811Eo7K8U" />; */}
+        title="Embedded youtube"
+      /> */}
+      <YouTube videoId="vWLcyFtni6U" opts={opts} onReady={onReady} />;
     </div>
   );
 };

@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.palette.background.default,
     color: theme.palette.secondary.main,
+    boxShadow: "unset",
   },
   menuButton: {
     marginRight: theme.spacing(2),
