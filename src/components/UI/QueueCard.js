@@ -47,6 +47,7 @@ const QueueCard = (props) => {
             src={props.video.image}
             className={classes.media}
             onClick={openVideoHandler}
+            alt="channel"
           />
         }
         classes={{ avatar: classes.avatar }}
