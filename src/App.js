@@ -9,7 +9,7 @@ function App() {
   const [openHomeDrawer, setHomeDrawer] = useState(true);
   const drawerHomeToggle = () => {
     setHomeDrawer((prevState) => {
-      setHomeDrawer(!prevState);
+      return !prevState;
     });
   };
 

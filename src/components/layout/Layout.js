@@ -8,7 +8,7 @@ const Layout = (props) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const drawerToggle = () => {
     setOpenDrawer((prevState) => {
-      setOpenDrawer(!prevState);
+      return !prevState;
     });
   };
 
